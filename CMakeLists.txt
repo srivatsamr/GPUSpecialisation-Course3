@@ -46,8 +46,8 @@ target_link_libraries(npp_edge
     PRIVATE CUDA::nppif
     PRIVATE CUDA::nppig
 )
-set(JPEG_LIBRARIES "/home/styx/Installs/envs/cuda/.pixi/envs/default/lib/libjpeg.so")
-set(JPEG_INCLUDE_DIR "/home/styx/Installs/envs/cuda/.pixi/envs/default/include")
+set(JPEG_LIBRARIES "/home/styx/Installs/envs/cuda/.pixi/envs/default/lib/libjpeg.so") # Adjust this path as necessary
+set(JPEG_INCLUDE_DIR "/home/styx/Installs/envs/cuda/.pixi/envs/default/include") # Adjust this path as necessary
 target_link_libraries(npp_edge PRIVATE ${JPEG_LIBRARIES})
 target_include_directories(npp_edge PRIVATE ${JPEG_INCLUDE_DIR})
 
