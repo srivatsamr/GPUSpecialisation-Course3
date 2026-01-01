@@ -115,11 +115,11 @@ void process_directory(const std::string& inputDir, const std::string& outputDir
 // Simple main
 int main(int argc, char** argv)
 {
-    if (argc < 3) {
-        std::cerr << "Usage: ./npp_edge <input_dir> <output_dir>\n";
+    if (argc < 4) {
+        std::cerr << "Usage: ./npp_edge <input_dir> <output_dir> <nstreams>\n";
         return 1;
     }
 
-    process_directory(argv[1], argv[2], 4);
+    process_directory(argv[1], argv[2], std::stoi(argv[3]));
     return 0;
 }

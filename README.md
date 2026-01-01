@@ -24,7 +24,7 @@ cmake --build . -j$(nproc)
 ```
 
 And run the code using:
-`./npp_edge </path/to/input/images> </path/to/output/images>`
+`./npp_edge </path/to/input/images> </path/to/output/images> <number__of_streams>`
 
 # Lessons Learnt
 
