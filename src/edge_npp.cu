@@ -1,22 +1,7 @@
 #include "CImg.h"
 #include "edge_npp.h"
 
-#include <cuda_runtime.h>
-#include <npp.h>
-#include <filesystem>
-#include <vector>
-#include <iostream>
-
-namespace fs = std::filesystem;
 using namespace cimg_library;
-
-struct StreamContext {
-    cudaStream_t stream{};
-    Npp8u* d_src{};
-    Npp8u* d_dst{};
-    size_t srcPitch{};
-    size_t dstPitch{};
-};
 
 void checkNppStatus(NppStatus status, const std::string& msg) {
     if (status != NPP_SUCCESS) {
@@ -30,8 +15,7 @@ std::vector<fs::path> load_images(const std::string& inputDir) {
     std::vector<fs::path> images;
     for (auto& p : fs::directory_iterator(inputDir)) {
         auto ext = p.path().extension().string();
-        if (ext == ".jpg" || ext == ".jpeg" || ext == ".png")
-            images.push_back(p.path());
+        images.push_back(p.path());
     }
     return images;
 }
